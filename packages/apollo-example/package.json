@@ -1,0 +1,25 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "ts-node --transpile-only src",
+        "migrate:save": "knex migrate:make init -x ts",
+        "migrate:up": "knex migrate:latest",
+        "generate": "graphql-codegen --config codegen.yml",
+        "postinstall": "npm run generate"
+    },
+    "dependencies": {
+        "apollo-server": "2.10.1",
+        "datasource-sql": "^1.1.1",
+        "knex": "^0.20.10",
+        "sqlite3": "^4.1.1"
+    },
+    "devDependencies": {
+        "@graphql-codegen/cli": "1.12.2",
+        "@graphql-codegen/typescript": "1.12.2",
+        "@graphql-codegen/typescript-resolvers": "1.12.2",
+        "apollo-datasource": "^0.7.0",
+        "graphql": "14.6.0",
+        "ts-node": "8.6.2",
+        "typescript": "3.7.5"
+    }
+}
