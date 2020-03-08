@@ -1,24 +1,34 @@
 import { gql } from 'apollo-server';
 
 export const typeDefs = gql`
-  type User {
+  type Batch {
     id: Int!
     name: String!
     areAllTasksCompleted: Boolean!
-    batches: [Batch!]!
-  }
-
-  type Batch {
-    id: Int!
     tasks: [Task!]!
   }
 
   type Task {
     id: Int!
+    name: String!
     isCompleted: Boolean!
   }
 
   type Query {
-    users: [User!]!
+    batches: [Batch!]!
+  }
+
+  type Mutation {
+    createBatch(input: CreateBatchInput!): Batch!
+    completeTask(id: Int!): Task!
+  }
+
+  input CreateBatchInput {
+    name: String!
+    tasks: [CreateTaskInput!]!
+  }
+
+  input CreateTaskInput {
+    name: String!
   }
 `;
