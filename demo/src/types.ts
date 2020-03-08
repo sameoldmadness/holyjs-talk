@@ -4,7 +4,6 @@ export const typeDefs = gql`
   type Batch {
     id: Int!
     name: String!
-    areAllTasksCompleted: Boolean!
     tasks: [Task!]!
   }
 

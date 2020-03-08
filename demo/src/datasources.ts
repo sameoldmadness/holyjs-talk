@@ -55,17 +55,6 @@ export class db extends SQLDataSource {
     return tasks
   }
 
-  async areAllTasksCompleted(id: number): Promise<boolean> {
-    const [result] = await this.knex
-      .count<[{ 'count(*)': number }]>('*')
-      .from("tasks")
-      .where("isCompleted", false)
-      .where("batch_id", id);
-    const count = result['count(*)']
-
-    return count === 0;
-  }
-
   async createBatch(input: CreateBatchInput) {
     const [{ id }] = await this.knex
       .table('batches')

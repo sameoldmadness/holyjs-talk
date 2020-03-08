@@ -35,12 +35,6 @@ export const resolvers: Resolvers<Context> = {
     },
   },
   Batch: {
-    areAllTasksCompleted: async (parent, _args, ctx) => {
-      const areAllTasksCompleted = await ctx.dataSources.db.areAllTasksCompleted(parent.id)
-
-      return areAllTasksCompleted
-    },
-    
     tasks: async (parent, _args, ctx) => {
       const tasks = await ctx.dataSources.db.findTasksByBatch(parent.id)
 
