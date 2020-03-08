@@ -1,5 +1,4 @@
 import { SQLDataSource } from "datasource-sql";
-import { Batch } from "./generated/graphql";
 
 interface BatchRecord {
   id: number
