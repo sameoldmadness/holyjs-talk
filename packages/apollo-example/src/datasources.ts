@@ -68,9 +68,10 @@ export class db extends SQLDataSource {
   }
 
   async createBatch(input: CreateBatchInput) {
-    const [id] = await this.knex
+    const [{ id }] = await this.knex
       .table('batches')
-      .insert({
+      .returning(['id'])
+      .insert<[{ id: number }]>({
         name: input.name
       })
 
@@ -78,9 +79,10 @@ export class db extends SQLDataSource {
   }
 
   async createTaskForBatch(batchId: number, input: CreateTaskInput) {
-    const [id] = await this.knex
+    const [{ id }] = await this.knex
       .table('tasks')
-      .insert({
+      .returning(['id'])
+      .insert<[{ id: number }]>({
         name: input.name,
         batch_id: batchId,
       })
