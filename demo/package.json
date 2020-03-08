@@ -2,9 +2,10 @@
     "private": true,
     "scripts": {
         "start": "ts-node --transpile-only src",
-        "prestart": "npm run env:up && npm run generate && npm run migrate",
-        "migrate": "knex migrate:latest",
-        "generate": "graphql-codegen --config codegen.yml",
+        "prepare:v1": "npm run env:up && npm run v1:generate && npm run v1:migrate",
+        "prepare:v2": "npm run env:up && prisma deploy",
+        "v1:migrate": "knex migrate:latest",
+        "v1:generate": "graphql-codegen --config codegen.yml",
         "env:up": "docker-compose up -d",
         "env:down": "docker-compose down"
     },
