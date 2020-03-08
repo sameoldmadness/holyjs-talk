@@ -1,10 +1,12 @@
 {
     "private": true,
     "scripts": {
-        "dev": "ts-node --transpile-only src",
+        "start": "ts-node --transpile-only src",
+        "prestart": "npm run env:up && npm run generate && npm run migrate",
         "migrate": "knex migrate:latest",
         "generate": "graphql-codegen --config codegen.yml",
-        "predev": "npm run generate && npm run migrate"
+        "env:up": "docker-compose up -d",
+        "env:down": "docker-compose down"
     },
     "dependencies": {
         "apollo-server": "2.10.1",
