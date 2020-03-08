@@ -1,11 +1,5 @@
 module.exports = {
-  client: "sqlite3",
-  migrations: {
-    extension: 'ts'
-  },
-  connection: {
-    filename: "./apollo-example.db"
-  },
+  client: "pg",
+  connection: 'postgresql://postgres@localhost:5555/postgres',
   debug: true,
-  useNullAsDefault: true,
 };

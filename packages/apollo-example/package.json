@@ -9,8 +9,7 @@
     "dependencies": {
         "apollo-server": "2.10.1",
         "datasource-sql": "^1.1.1",
-        "knex": "^0.20.10",
-        "sqlite3": "^4.1.1"
+        "knex": "^0.20.10"
     },
     "devDependencies": {
         "@graphql-codegen/cli": "1.12.2",
