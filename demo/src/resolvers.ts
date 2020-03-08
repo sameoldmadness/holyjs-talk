@@ -20,16 +20,16 @@ export const resolvers: Resolvers<Context> = {
   },
   Mutation: {
     createBatch: async (_parent, args, ctx) => {
-      const batch = await ctx.dataSources.db.createBatch(args.input)
+      const batch = await ctx.dataSources.db.createBatch(args.data)
 
-      for (const taskInput of args.input.tasks) {
+      for (const taskInput of args.data.tasks) {
         await ctx.dataSources.db.createTaskForBatch(batch.id, taskInput)
       }
 
       return batch as Batch
     },
-    completeTask: async (_parent, args, ctx) => {
-      const task = await ctx.dataSources.db.completeTask(args.id)
+    updateTask: async (_parent, args, ctx) => {
+      const task = await ctx.dataSources.db.updateTask(args.where.id, args.data)
 
       return task as Task
     },

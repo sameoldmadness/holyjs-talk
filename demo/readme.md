@@ -8,5 +8,9 @@
 ```
 npm install
 
+npm run env:up
+npm run generate
+npm run migrate
+
 npm start
 ```

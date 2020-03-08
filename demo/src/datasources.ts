@@ -19,6 +19,10 @@ interface CreateTaskInput {
   name: string
 }
 
+interface UpdateTaskInput {
+  isCompleted: boolean
+}
+
 export class db extends SQLDataSource {
   async findBatches(): Promise<BatchRecord[]> {
     const batches = await this.knex
@@ -78,12 +82,12 @@ export class db extends SQLDataSource {
     return this.findTask(id)
   }
 
-  async completeTask(id: number) {
+  async updateTask(id: number, input: UpdateTaskInput) {
     await this.knex
       .table('tasks')
       .where('id', id)
       .update({
-        isCompleted: true
+        isCompleted: input.isCompleted,
       })
 
     return this.findTask(id)

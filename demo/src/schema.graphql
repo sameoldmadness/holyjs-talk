@@ -1,0 +1,37 @@
+type Batch {
+  id: Int!
+  name: String!
+  tasks: [Task!]!
+}
+
+type Task {
+  id: Int!
+  name: String!
+  isCompleted: Boolean!
+}
+
+input BatchCreateInput {
+  name: String!
+  tasks: [TaskCreateInput!]!
+}
+
+input TaskCreateInput {
+  name: String!
+}
+
+input TaskUpdateInput {
+  isCompleted: Boolean!
+}
+
+input TaskWhereUniqueInput {
+  id: Int!
+}
+
+type Query {
+  batches: [Batch!]!
+}
+
+type Mutation {
+  createBatch(data: BatchCreateInput!): Batch!
+  updateTask(data: TaskUpdateInput!, where: TaskWhereUniqueInput!): Task
+}
