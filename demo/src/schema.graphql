@@ -1,31 +1,4 @@
-type Batch {
-  id: Int!
-  name: String!
-  tasks: [Task!]!
-}
-
-type Task {
-  id: Int!
-  name: String!
-  isCompleted: Boolean!
-}
-
-input BatchCreateInput {
-  name: String!
-  tasks: [TaskCreateInput!]!
-}
-
-input TaskCreateInput {
-  name: String!
-}
-
-input TaskUpdateInput {
-  isCompleted: Boolean!
-}
-
-input TaskWhereUniqueInput {
-  id: Int!
-}
+# import * from './generated/prisma.graphql'
 
 type Query {
   batches: [Batch!]!
