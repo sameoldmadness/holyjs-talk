@@ -1,7 +1,10 @@
 version: '3'
 services:
   postgres:
-    container_name: postgres-apollo-example
+    container_name: postgres-holyjs-demo
     image: postgres:10.7
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - 5555:5432
