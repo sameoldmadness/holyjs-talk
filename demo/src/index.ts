@@ -1,19 +1,17 @@
-import { ApolloServer } from "apollo-server";
+import { GraphQLServer } from "graphql-yoga";
 import { importSchema } from 'graphql-import'
 import { db } from "./datasources";
 import { resolvers } from "./resolvers";
 
 (async () => {
 
-  const knexConfig = require('../knexfile');
-
-  const server = new ApolloServer({
+  const server = new GraphQLServer({
     typeDefs: await importSchema('./src/schema.graphql'),
     resolvers,
-    dataSources: () => ({ db: new db(knexConfig) })
+    context: (req) => ({ ...req, db })
   });
 
-  server.listen({ port: 5000 }).then(() => {
+  server.start({ port: 5000 }).then(() => {
     console.log(`🚀  Server ready at http://localhost:5000`);
   });
 
