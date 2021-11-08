@@ -10,7 +10,7 @@
         "env:down": "docker-compose down"
     },
     "dependencies": {
-        "apollo-server": "2.10.1",
+        "apollo-server": "2.25.3",
         "chalk": "^3.0.0",
         "datasource-sql": "^1.1.1",
         "graphql-config": "^3.0.0-alpha.17",
