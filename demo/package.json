@@ -16,7 +16,7 @@
         "graphql-config": "^3.0.0-alpha.17",
         "graphql-import": "^1.0.0-beta.2",
         "graphql-yoga": "^1.18.3",
-        "knex": "^0.20.10",
+        "knex": "^2.4.0",
         "pg": "^7.18.2",
         "prisma-binding": "^2.3.16"
     },
